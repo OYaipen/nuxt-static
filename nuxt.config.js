@@ -33,7 +33,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#41B883' },
   /*
    ** Global CSS
    */
@@ -41,13 +41,25 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '~/plugins/init.js',
+    '~/plugins/directives',
+    '~/plugins/intersection-observer.client.js',
+    '~/plugins/vue-observe-visibility.client.js',
+    '~/plugins/ga.client.js',
+    '~/plugins/adblock.client.js',
+    '~/plugins/newsletter.client.js'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    ['~/modules/docs/', { port: 3001 }],
+    '~/modules/crawler/',
+    '~/modules/static/',
+    '~/modules/components/',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/color-mode-module
@@ -65,12 +77,17 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // https://http.nuxtjs.org
+    '@nuxt/http',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa'
   ],
   colorMode: {
     preference: 'light' // disable system
+  },
+  http: {
+    proxy: true
   },
   /*
    ** Axios module configuration
