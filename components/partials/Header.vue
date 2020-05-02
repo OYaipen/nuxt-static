@@ -37,15 +37,19 @@
           </li>
         </ul>
       </nav>
+      <!-- Input Search -->
+      <input-search/>
     </div>
   </header>
 </template>
 
 <script>
 import webLogo from '@/components/svg/LogoWeb'
+import InputSearch from '@/components/partials/Search'
 export default {
   components: {
-    webLogo
+    webLogo,
+    InputSearch
   }
 }
 </script>
